@@ -1,0 +1,65 @@
+<odoo>
+    <record id="view_clinic_patient_ticket_list" model="ir.ui.view">
+        <field name="name">clinic.patient.ticket.list</field>
+        <field name="model">clinic.patient.ticket</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="overdue" decoration-warning="priority == 'urgent'" decoration-info="priority == 'routine'">
+                <field name="name"/>
+                <field name="patient_name"/>
+                <field name="priority"/>
+                <field name="score"/>
+                <field name="specialization"/>
+                <field name="doctor_id"/>
+                <field name="appointment_type_id"/>
+                <field name="waiting_minutes"/>
+                <field name="overdue"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_clinic_patient_ticket_form" model="ir.ui.view">
+        <field name="name">clinic.patient.ticket.form</field>
+        <field name="model">clinic.patient.ticket</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_auto_assign_doctor" type="object" string="Auto Assign Doctor" class="btn-primary"/>
+                    <button name="action_create_appointment" type="object" string="Create Appointment" class="btn-secondary"/>
+                    <button name="action_mark_done" type="object" string="Mark Done" class="btn-success"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Patient">
+                            <field name="name" readonly="1"/>
+                            <field name="patient_name"/>
+                            <field name="age"/>
+                            <field name="symptoms"/>
+                        </group>
+                        <group string="Triage">
+                            <field name="priority"/>
+                            <field name="score" readonly="1"/>
+                            <field name="specialization"/>
+                            <field name="arrival_time"/>
+                            <field name="waiting_minutes" readonly="1"/>
+                            <field name="overdue" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Assignment">
+                        <field name="doctor_id"/>
+                        <field name="appointment_type_id"/>
+                        <field name="appointment_id" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_clinic_patient_ticket" model="ir.actions.act_window">
+        <field name="name">Patient Intake Tickets</field>
+        <field name="res_model">clinic.patient.ticket</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

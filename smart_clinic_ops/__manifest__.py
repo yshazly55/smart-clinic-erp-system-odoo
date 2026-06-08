@@ -1,0 +1,21 @@
+{
+    "name": "Smart Clinic Operations",
+    "version": "1.0",
+    "summary": "Patient intake, doctor assignment, appointments, and supply alerts",
+    "category": "Healthcare",
+    "author": "MMMY Team",
+    "depends": ["base", "mail", "hr", "calendar", "stock"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/hr_employee_views.xml",
+        "views/clinic_supply_views.xml",
+        "views/clinic_appointment_type_views.xml",
+        "views/clinic_ticket_views.xml",
+        "views/clinic_appointment_views.xml",
+        "data/clinic_demo_data.xml",
+        "views/clinic_menus.xml",
+    ],
+    "application": True,
+    "installable": True,
+    "license": "LGPL-3",
+}

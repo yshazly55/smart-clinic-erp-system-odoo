@@ -1,0 +1,64 @@
+<odoo>
+    <!-- Demo doctors from the Employees module -->
+    <record id="employee_doctor_ali" model="hr.employee">
+        <field name="name">Dr. Ali Emergency</field>
+        <field name="is_clinic_doctor">1</field>
+        <field name="clinic_specialization">emergency</field>
+    </record>
+
+    <record id="employee_doctor_sara" model="hr.employee">
+        <field name="name">Dr. Sara General</field>
+        <field name="is_clinic_doctor">1</field>
+        <field name="clinic_specialization">general</field>
+    </record>
+
+    <!-- Demo medical supplies -->
+    <record id="supply_gloves" model="clinic.supply">
+        <field name="name">Medical Gloves</field>
+        <field name="qty_on_hand">20</field>
+        <field name="min_qty">5</field>
+    </record>
+
+    <record id="supply_syringe" model="clinic.supply">
+        <field name="name">Syringes</field>
+        <field name="qty_on_hand">6</field>
+        <field name="min_qty">5</field>
+    </record>
+
+    <record id="supply_bandage" model="clinic.supply">
+        <field name="name">Bandages</field>
+        <field name="qty_on_hand">8</field>
+        <field name="min_qty">5</field>
+    </record>
+
+    <!-- Demo appointment type -->
+    <record id="appt_type_emergency_consultation" model="clinic.appointment.type">
+        <field name="name">Emergency Consultation</field>
+        <field name="specialization">emergency</field>
+        <field name="duration_minutes">30</field>
+    </record>
+
+    <record id="appt_type_general_checkup" model="clinic.appointment.type">
+        <field name="name">General Checkup</field>
+        <field name="specialization">general</field>
+        <field name="duration_minutes">30</field>
+    </record>
+
+    <record id="appt_line_emergency_gloves" model="clinic.appointment.supply.line">
+        <field name="appointment_type_id" ref="appt_type_emergency_consultation"/>
+        <field name="supply_id" ref="supply_gloves"/>
+        <field name="quantity">2</field>
+    </record>
+
+    <record id="appt_line_emergency_syringe" model="clinic.appointment.supply.line">
+        <field name="appointment_type_id" ref="appt_type_emergency_consultation"/>
+        <field name="supply_id" ref="supply_syringe"/>
+        <field name="quantity">2</field>
+    </record>
+
+    <record id="appt_line_general_gloves" model="clinic.appointment.supply.line">
+        <field name="appointment_type_id" ref="appt_type_general_checkup"/>
+        <field name="supply_id" ref="supply_gloves"/>
+        <field name="quantity">1</field>
+    </record>
+</odoo>

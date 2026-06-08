@@ -1,0 +1,24 @@
+<odoo>
+    <record id="view_employee_form_clinic_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.clinic.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Clinic Information">
+                    <field name="is_clinic_doctor"/>
+                    <field name="clinic_specialization"/>
+                    <field name="clinic_active_ticket_count" readonly="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_clinic_doctors" model="ir.actions.act_window">
+        <field name="name">Clinic Doctors</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('is_clinic_doctor', '=', True)]</field>
+        <field name="context">{'default_is_clinic_doctor': True}</field>
+    </record>
+</odoo>

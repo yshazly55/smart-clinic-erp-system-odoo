@@ -1,0 +1,13 @@
+<odoo>
+    <menuitem id="menu_smart_clinic_root" name="Smart Clinic" sequence="10"/>
+
+    <menuitem id="menu_smart_clinic_operations" name="Operations" parent="menu_smart_clinic_root" sequence="10"/>
+    <menuitem id="menu_smart_clinic_config" name="Configuration" parent="menu_smart_clinic_root" sequence="20"/>
+
+    <menuitem id="menu_clinic_patient_ticket" name="Patient Intake Tickets" parent="menu_smart_clinic_operations" action="action_clinic_patient_ticket" sequence="10"/>
+    <menuitem id="menu_clinic_appointment" name="Appointments" parent="menu_smart_clinic_operations" action="action_clinic_appointment" sequence="20"/>
+    <menuitem id="menu_clinic_supply" name="Medical Supplies" parent="menu_smart_clinic_operations" action="action_clinic_supply" sequence="30"/>
+
+    <menuitem id="menu_clinic_doctors" name="Clinic Doctors" parent="menu_smart_clinic_config" action="action_clinic_doctors" sequence="10"/>
+    <menuitem id="menu_clinic_appointment_type" name="Appointment Types" parent="menu_smart_clinic_config" action="action_clinic_appointment_type" sequence="20"/>
+</odoo>
